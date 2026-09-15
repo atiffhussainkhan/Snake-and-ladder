@@ -1,0 +1,43 @@
+# Unity generated and local files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+
+# IDE and user-local files
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+
+# Phase 3 validation harness project metadata
+!validation/Phase3FixtureHarness/Phase3FixtureHarness.csproj
+validation/**/bin/
+validation/**/obj/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Generated replay and simulation output
+replays/
+simulation-output/
+*.replay
+
+# OS files
+.DS_Store
+Thumbs.db
