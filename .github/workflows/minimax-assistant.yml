@@ -22,7 +22,7 @@ jobs:
         with:
           script: |
             let issue_number = context.payload.issue?.number;
-            if (!issue_number && context.event.inputs && context.event.inputs.issue_number) {
+            if (!issue_number && context.payload.inputs && context.payload.inputs.issue_number) {
               issue_number = Number(context.event.inputs.issue_number);
             }
             if (!issue_number) {
