@@ -65,7 +65,13 @@ jobs:
           curl -sS https://api.minimax.io/v1/chat/completions \
             -H "Authorization: Bearer $MINIMAX_API_KEY" \
             -H "Content-Type: application/json" \
-            -d "$PAYLOAD" | jq -r '.choices[0].message.content' > triage.md
+            -d "$PAYLOAD" -o response.json -w "HTTP:%{http_code}\n"
+          echo "--- raw response.json ---"
+          cat response.json
+          echo "--- end raw ---"
+          jq -r '.choices[0].message.content // empty' response.json > triage.md
+          echo "--- triage.md (size: $(wc -c < triage.md)) ---"
+          cat triage.md
 
       - name: Comment on issue
         uses: actions/github-script@v7
