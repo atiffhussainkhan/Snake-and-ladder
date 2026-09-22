@@ -30,15 +30,3 @@ replay-fixture check is published; technical freeze evidence, Unity project crea
 and runtime cross-checks remain pending. No Unity game project or gameplay code exists
 yet. Local `.env` files must remain
 untracked; `.env.example` contains documentation defaults and blank secret fields.
-
-## Validation files
-
-- [Phase 3 validation report](docs/PHASE_3_VALIDATION_REPORT.md)
-- [Fixture harness project](validation/Phase3FixtureHarness/Phase3FixtureHarness.csproj)
-- [Fixture harness source](validation/Phase3FixtureHarness/Program.cs)
-
-## Repository configuration
-
-- [Environment template](.env.example) — placeholder values only; keep real `.env` files local.
-- [Git ignore rules](.gitignore)
-- [Editor settings](.editorconfig)
