@@ -62,16 +62,17 @@ jobs:
           EOF
           )
           PAYLOAD=$(jq -n --arg p "$PROMPT" '{model:"MiniMax-M3",max_tokens:1200,messages:[{role:"user",content:$p}]}')
-          curl -sS https://api.minimax.io/v1/chat/completions \
+          curl -sS -f https://api.minimax.io/v1/chat/completions \
             -H "Authorization: Bearer $MINIMAX_API_KEY" \
             -H "Content-Type: application/json" \
-            -d "$PAYLOAD" -o response.json -w "HTTP:%{http_code}\n"
-          echo "--- raw response.json ---"
-          cat response.json
-          echo "--- end raw ---"
+            -d "$PAYLOAD" -o response.json \
+            || { echo "::error::MiniMax API call failed"; cat response.json; exit 1; }
           jq -r '.choices[0].message.content // empty' response.json > triage.md
-          echo "--- triage.md (size: $(wc -c < triage.md)) ---"
-          cat triage.md
+          if [ ! -s triage.md ]; then
+            echo "::error::Empty response from MiniMax"
+            cat response.json
+            exit 1
+          fi
 
       - name: Comment on issue
         uses: actions/github-script@v7
