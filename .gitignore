@@ -41,3 +41,6 @@ simulation-output/
 # OS files
 .DS_Store
 Thumbs.db
+
+# VS Code workspace settings with API key reference
+.vscode/settings.local.json
