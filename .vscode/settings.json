@@ -1,0 +1,31 @@
+{
+  "//": "VS Code workspace settings. MiniMax wired into Cline + Continue. Get your API key from https://platform.minimax.io/user-center/basic-information/interface-key",
+  "//": "Recommended: paste the key into VS Code's Cline panel settings UI (Cmd+Shift+P -> Cline: Open Settings) so it never enters git.",
+  "cline.apiProvider": "openai",
+  "cline.openAiBaseUrl": "https://api.minimax.io/v1",
+  "cline.openAiApiKey": "",
+  "cline.openAiModelId": "MiniMax-M3",
+  "cline.allowedCommands": [
+    "git status",
+    "git diff",
+    "git log",
+    "git show",
+    "git add",
+    "npm test",
+    "npm run build",
+    "ls",
+    "cat",
+    "pwd"
+  ],
+  "continue.telemetryEnabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "files.associations": {
+    "*.md": "markdown"
+  },
+  "editor.formatOnSave": true,
+  "githubPullRequests.remotes": [
+    "origin"
+  ]
+}
